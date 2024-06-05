@@ -1,6 +1,7 @@
 <?php
 require "Rest_Controller.php";
 require "Parser_Controller.php";
+
 $rest_model = new Rest_Controller();
 $parser_model = new Parser_Controller();
 
