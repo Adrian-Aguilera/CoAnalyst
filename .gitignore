@@ -1,5 +1,5 @@
 # CakePHP 3
-
+vendor/
 /vendor/*
 /config/app.php
 
@@ -23,3 +23,7 @@
 /app/Config/core.php
 /app/Config/database.php
 /vendors/*
+/vendor/
+
+#enviroment
+.env

@@ -1,7 +1,14 @@
 <?php
+require_once '../vendor/autoload.php';
+
+//echo realpath(__DIR__ . '/../../CoAnalyst/');
+$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../CoAnalyst/');
+$dotenv->load();
+
 class Rest_Controller{
     public function run_code($script, $language){
-        $url = 'https://api.jdoodle.com/v1/execute';
+
+        $url =  $_ENV['URL'];
         $data = array(
             'clientId' => '9ed9c63c4e3e2344bbeafd933e588f8',
             'clientSecret' => 'eaab3944f7dda118a58a16e8a4884286312ca1aaa7b713b4aeeaad627140143d',
