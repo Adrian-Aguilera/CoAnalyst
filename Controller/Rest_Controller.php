@@ -10,8 +10,8 @@ class Rest_Controller{
 
         $url =  $_ENV['URL'];
         $data = array(
-            'clientId' => '9ed9c63c4e3e2344bbeafd933e588f8',
-            'clientSecret' => 'eaab3944f7dda118a58a16e8a4884286312ca1aaa7b713b4aeeaad627140143d',
+            'clientId' => $_ENV["clientId"],
+            'clientSecret' => $_ENV["clientSecret"],
             'script' => $script,
             'language' => $language,
             'versionIndex' => '0'
