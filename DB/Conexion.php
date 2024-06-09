@@ -31,3 +31,13 @@ class Coanalystdb {
         return $this->connection;
     }
 }
+
+/*
+$db = new Coanalystdb();    
+$conexion = $db->getConnection();
+
+if ($conexion) {
+    echo "Conexión exitosa";
+} else {
+    echo "Falló la conexión";
+}*/
