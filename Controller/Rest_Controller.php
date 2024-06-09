@@ -39,6 +39,9 @@ class Rest_Controller {
         $result = curl_exec($ch);
         curl_close($ch);
 
-        return $result;
+        if ($result === false) {
+            return json_encode(['success' => false, 'message' => 'Error al ejecutar el script.']);
+        }
+        return json_encode(['success' => true, 'data' => $result]);
     }
 }

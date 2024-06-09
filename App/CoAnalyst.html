@@ -374,6 +374,8 @@
                 </div>
             </div>
         </div>
+        <!-- Contenedor para mensajes de respuesta -->
+    <div id="responseMessage" style="color: red; margin-top: 10px;"></div>
     </header>
     <script >
         document.querySelectorAll('input[type="checkbox"]').forEach(function(checkbox) {
@@ -384,5 +386,34 @@
             });
         });
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const form = document.querySelector('form');
+            form.addEventListener('submit', function(event) {
+                event.preventDefault(); // Prevenir recarga de la página
+        
+                const formData = new FormData(form); // Capturar datos del formulario
+                fetch('../Controller/CoAnalystController.php', {
+                    method: 'POST',
+                    body: formData
+                })
+                .then(response => response.json())
+                .then(data => {
+                    const responseMessage = document.getElementById('responseMessage');
+                    if (data.success) {
+                        responseMessage.style.color = 'green';
+                        responseMessage.textContent = data.message;
+                    } else {
+                        responseMessage.style.color = 'red';
+                        responseMessage.textContent = data.message;
+                    }
+                })
+                .catch(error => {
+                    document.getElementById('responseMessage').textContent = 'Error al procesar la solicitud: ' + error;
+                });
+            });
+        });
+        </script>
+        
 </body>
 </html>
