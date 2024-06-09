@@ -32,7 +32,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo json_encode(['error' => false, 'message' => 'La función tiene un error: ' . $response['message']]);
         }
     } else {
-        echo json_encode(['success' => false, 'message' => 'El código proporcionado no corresponde al lenguaje seleccionado']);
+        echo json_encode(['error' => false, 'message' => 'El código proporcionado no corresponde al lenguaje seleccionado']);
     }
     
 }
