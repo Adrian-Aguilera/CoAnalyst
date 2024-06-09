@@ -20,16 +20,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     /*parseando codigo de entrada para solo admitir funciones*/
     $engine_parsing = $parser_model->is_function($codigo);
     
-    if ($engine_parsing) {
+    if (strtolower($engine_parsing) == strtolower($lenguaje)) {
         $send_code = $rest_model->runCode($codigo, $lenguaje);
         $response = json_decode($send_code, true); // Decodificar JSON a array
         if ($response['success']) {
             echo json_encode(['success' => true, 'message' => 'Función funciona correctamente', 'data' => $response['data']]);
         } else {
-            echo json_encode(['success' => false, 'message' => 'La función tiene un error: ' . $response['message']]);
+            echo json_encode(['error' => false, 'message' => 'La función tiene un error: ' . $response['message']]);
         }
     } else {
-        echo json_encode(['success' => false, 'message' => 'El código proporcionado no corresponde a una función válida en los lenguajes soportados.']);
+        echo json_encode(['success' => false, 'message' => 'El código proporcionado no corresponde al lenguaje seleccionado']);
     }
     
 }
