@@ -1,19 +1,33 @@
 <?php
 require_once '../vendor/autoload.php';
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../CoAnalyst/');
-$dotenv->load();
-class Coanalystdb{
-    public function Conection(){
-        $Server_name = $_ENV["Server_name"];
-        $User_Name = $_ENV["User_Name"];
-        $Password = $_ENV["Password"];
-        $DB_name = $_ENV["DB_name"];
+
+use Dotenv\Dotenv;
+
+class Coanalystdb {
+    private $connection;
+
+    public function __construct() {
+        $dotenv = Dotenv::createImmutable(__DIR__ . '/../../CoAnalyst/');
+        $dotenv->load();
+        $this->connect();
+    }
+
+    private function connect() {
+        $serverName = $_ENV["Server_name"];
+        $userName = $_ENV["User_Name"];
+        $password = $_ENV["Password"];
+        $dbName = $_ENV["DB_name"];
         
-        $conexion_db= new mysqli($Server_name,$User_Name,$Password,$DB_name);
-        if($conexion_db->connect_error){
-            die('Conexion Fallida'.$conexion_db->connect_error);
-        }else{
-            echo "<script>alert('Conexion Exitosa')</script>";
+        $this->connection = new mysqli($serverName, $userName, $password, $dbName);
+        
+        if ($this->connection->connect_error) {
+            error_log('Connection failed: ' . $this->connection->connect_error);
+            return false;
         }
+        return $this->connection;
+    }
+
+    public function getConnection() {
+        return $this->connection;
     }
 }
