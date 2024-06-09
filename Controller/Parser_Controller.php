@@ -1,6 +1,7 @@
 <?php
 
 class Parser_Controller {
+    /*La funcion no debe contener caracteres especiales ni comentarios */
     public function is_function($text) {
         $text = trim($text);
         $patterns = [
