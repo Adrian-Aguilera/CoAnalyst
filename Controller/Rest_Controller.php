@@ -1,37 +1,44 @@
 <?php
 require_once '../vendor/autoload.php';
 
-//echo realpath(__DIR__ . '/../../CoAnalyst/');
-$dotenv = Dotenv\Dotenv::createImmutable(__DIR__ . '/../../CoAnalyst/');
-$dotenv->load();
+use Dotenv\Dotenv;
 
-class Rest_Controller{
-    public function run_code($script, $language){
+class Rest_Controller {
+    private $url;
+    private $clientId;
+    private $clientSecret;
 
-        $url =  $_ENV['URL'];
-        $data = array(
-            'clientId' => $_ENV["clientId"],
-            'clientSecret' => $_ENV["clientSecret"],
+    public function __construct() {
+        $dotenv = Dotenv::createImmutable(__DIR__ . '/../../CoAnalyst/');
+        $dotenv->load();
+        $this->url = $_ENV['URL'];
+        $this->clientId = $_ENV['clientId'];
+        $this->clientSecret = $_ENV['clientSecret'];
+    }
+
+    public function runCode($script, $language) {
+        $data = [
+            'clientId' => $this->clientId,
+            'clientSecret' => $this->clientSecret,
             'script' => $script,
             'language' => $language,
             'versionIndex' => '0'
-        );
-        
+        ];
+
         $data_string = json_encode($data);
+        $ch = curl_init($this->url);
         
-        $requests = curl_init($url);
-        
-        curl_setopt($requests, CURLOPT_CUSTOMREQUEST, "POST");
-        curl_setopt($requests, CURLOPT_POSTFIELDS, $data_string);
-        curl_setopt($requests, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($requests, CURLOPT_HTTPHEADER, array(
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $data_string);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, [
             'Content-Type: application/json',
             'Content-Length: ' . strlen($data_string)
-        ));
+        ]);
         
-        $result = curl_exec($requests);
-        
-        curl_close($requests);
+        $result = curl_exec($ch);
+        curl_close($ch);
+
         return $result;
     }
 }
