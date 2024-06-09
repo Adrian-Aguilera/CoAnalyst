@@ -207,6 +207,17 @@
             font-weight: bold;
 
         }
+        .custom-alert {
+            position: fixed;
+            top: 20%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: white;
+            border: 1px solid #000;
+            padding: 20px;
+            z-index: 1001;
+        }
+
     </style>
 </head>
 <body>
@@ -374,8 +385,10 @@
                 </div>
             </div>
         </div>
-        <!-- Contenedor para mensajes de respuesta -->
-    <div id="responseMessage" style="color: red; margin-top: 10px;"></div>
+        <div id="customAlert" class="custom-alert" style="display:none;">
+            <p id="alertMessage"></p>
+            <button onclick="closeAlert()">Cerrar</button>
+        </div>        
     </header>
     <script >
         document.querySelectorAll('input[type="checkbox"]').forEach(function(checkbox) {
@@ -391,7 +404,7 @@
             const form = document.querySelector('form');
             form.addEventListener('submit', function(event) {
                 event.preventDefault(); // Prevenir recarga de la página
-        
+
                 const formData = new FormData(form); // Capturar datos del formulario
                 fetch('../Controller/CoAnalystController.php', {
                     method: 'POST',
@@ -399,21 +412,22 @@
                 })
                 .then(response => response.json())
                 .then(data => {
-                    const responseMessage = document.getElementById('responseMessage');
-                    if (data.success) {
-                        responseMessage.style.color = 'green';
-                        responseMessage.textContent = data.message;
-                    } else {
-                        responseMessage.style.color = 'red';
-                        responseMessage.textContent = data.message;
-                    }
+                    const alertMessage = document.getElementById('alertMessage');
+                    const customAlert = document.getElementById('customAlert');
+                    alertMessage.textContent = data.message;
+                    customAlert.style.display = 'block'; // Mostrar el alerta personalizado
                 })
                 .catch(error => {
-                    document.getElementById('responseMessage').textContent = 'Error al procesar la solicitud: ' + error;
+                    document.getElementById('alertMessage').textContent = 'Error al procesar la solicitud: ' + error;
+                    document.getElementById('customAlert').style.display = 'block'; // Mostrar el alerta personalizado
                 });
             });
         });
-        </script>
+
+        function closeAlert() {
+            document.getElementById('customAlert').style.display = 'none'; // Función para cerrar el alerta
+        }
+    </script>
         
 </body>
 </html>

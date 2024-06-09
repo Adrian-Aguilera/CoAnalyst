@@ -2,11 +2,18 @@
 
 class Parser_Controller{
     public function is_function($text) {
-        // Define la expresión regular
-        $pattern = "/^\s*(def|function|public|private|protected)?\s*(static)?\s*\w+\s*\([^)]*\)\s*(:|{)/";
-    
-        // Utiliza preg_match para evaluar el texto con la expresión regular
-        $res = preg_match($pattern, $text);
-        return $res;
+        $patterns = [
+            'python' => "/^\s*def\s+\w+\s*\([^)]*\)\s*:/",
+            'php' => "/^\s*(public|private|protected)?\s*(static)?\s*function\s+\w+\s*\([^)]*\)\s*{/",
+            'java' => "/^\s*(public|private|protected)?\s*(static)?\s*\w+\s+\w+\s*\([^)]*\)\s*{/",
+            'javascript' => "/^\s*function\s+\w+\s*\([^)]*\)\s*{/"
+        ];
+
+        foreach ($patterns as $lang => $pattern) {
+            if (preg_match($pattern, trim($text))) {
+                return $lang;
+            }
+        }
+        return false;
     }
 }

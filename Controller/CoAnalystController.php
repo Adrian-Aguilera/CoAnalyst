@@ -17,9 +17,9 @@ $data_input = new get_data();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     list ($codigo, $lenguaje) = $data_input->data_input();
-    
     /*parseando codigo de entrada para solo admitir funciones*/
-    $engine_parsing = $parser_model->is_function($codigo) ? true : false;
+    $engine_parsing = $parser_model->is_function($codigo);
+    
     if ($engine_parsing) {
         $send_code = $rest_model->runCode($codigo, $lenguaje);
         $response = json_decode($send_code, true); // Decodificar JSON a array
@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
             echo json_encode(['success' => false, 'message' => 'La función tiene un error: ' . $response['message']]);
         }
     } else {
-        echo json_encode(['success' => false, 'message' => 'No es función']);
+        echo json_encode(['success' => false, 'message' => 'El código proporcionado no corresponde a una función válida en los lenguajes soportados.']);
     }
     
 }
