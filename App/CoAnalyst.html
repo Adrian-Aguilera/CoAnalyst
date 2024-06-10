@@ -216,8 +216,27 @@
             color: #444444;
         }
         @media (max-width: 768px) {
+            .info-responsive{
+                width:79%;
+            }
             .main-menu{
                 display: none;
+            }
+            .data-info{
+                margin-right:20px;
+            }
+            .input-responsive{
+                width: 90%;
+            }
+        }
+        @media (max-width: 1024px) {
+            .data-info{
+                margin-right:20px;
+            }
+        }
+        @media (max-width: 1477px) {
+            .data-info{
+                margin-right:20px;
             }
         }
     </style>
@@ -292,11 +311,11 @@
                                     </svg>
                                 </div>
                             </div>
-                            <p style="display: flex; text-align: justify;">La funcion no debe contener caracteres especiales ni comentarios* </p>
+                            <p style="display: flex; text-align: justify;" class="info-responsive">La funcion no debe contener caracteres especiales ni comentarios* </p>
                         </div>
                         <div class="data-inter display-flex">
                             <div class="data-input" style="margin-left: 25px; margin-bottom: 25px;">
-                                <textarea  name="code" id="code" cols="176" rows="20" placeholder="Type here"></textarea>
+                                <textarea class="input-responsive" style="width: 97%;height: 100%;" name="code" id="code" cols="40" rows="20" placeholder="Type here"></textarea>
                             </div>
                         </div>
                     </div>
@@ -358,9 +377,9 @@
                     <table class="table" style="width: 100%;">
                         <thead>
                           <tr>
-                            <th scope="col">Id</th>
+                            <th scope="col">Nombre</th>
                             <th scope="col">Tiempo de ejecucion</th>
-                            <th scope="col">Lenguaje</th>
+                            <th scope="col">Calidad</th>
                             <th scope="col">Complejidad</th>
                             <th scope="col">Complejidad</th>
                           </tr>

@@ -40,24 +40,24 @@ class Rest_Controller {
         curl_close($ch);
         
         if ($result === false) {
-            // Error en la llamada de cURL, posible problema de red o configuración
             return json_encode(['error' => true, 'message' => 'Error al realizar la solicitud al servidor.']);
         }
         
-        // Decodificar la respuesta JSON para analizarla
         $response = json_decode($result, true);
-        
+        //guardar logs
+        $logFile = 'logfile.log';
+        file_put_contents($logFile, $result . PHP_EOL, FILE_APPEND);
+
         if ($response === null && json_last_error() !== JSON_ERROR_NONE) {
-            // Error en la decodificación JSON
             return json_encode(['error' => true, 'message' => 'Error en la decodificación de la respuesta.']);
         }
         
-        // Dado que statusCode siempre es 200, verificamos directamente el contenido del output
+        // como estatus code siempre es 200:
         if (strpos($response['output'], 'SyntaxError') !== false || strpos($response['output'], 'Error') !== false) {
             // Si encontramos términos que indican un error en el output, respondemos con error
             return json_encode(['error' => true, 'message' => 'Error en la ejecución del script: ' . $response['output']]);
         } else {
-            // Si el output no contiene indicadores de error, asumimos que la ejecución fue correcta
+            // si la respuestas no tiene errores es correcta:
             return json_encode(['success' => true, 'data' => $response['output']]);
         }
     }
@@ -70,8 +70,8 @@ def test():\n print(5+5)\ntest()
 "; 
 $language = 'python3';
 
-$response = $restController->runCode($script, $language);
-
+$response = $restController->runCode($script, $language, $local_modo = true);
+echo $response;
 $responseData = json_decode($response, true);
 if (isset($responseData['success']) && $responseData['success']) {
     echo "Script executed successfully:\n";
