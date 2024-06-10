@@ -432,7 +432,7 @@
                     }
                 })
                 .catch(error => {
-                    swal('Error', 'Error al procesar la solicitud: ' + error.message, 'error');
+                    swal('Error',error.message, 'error');
                 });
             });
         });
