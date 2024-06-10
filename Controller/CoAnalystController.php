@@ -21,11 +21,12 @@ $responseController = new ResponseController($modelo_db);
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     list($codigo, $lenguaje) = $dataInput->data_input();
     $engineParsing = $parserModel->is_function($codigo);
-    
+
     if (strtolower($engineParsing) === strtolower($lenguaje)) {
         $sendCode = $restModel->runCode($codigo, $lenguaje);
-        $result = json_decode($responseController->processResponse($sendCode));
+        $result = $responseController->processResponse($sendCode);
         $response = json_decode($result, true);
+
         if (isset($response['success']) && $response['success']) {
             echo json_encode(['success' => true, 'message' => $response['message']]);
         } else {
@@ -36,3 +37,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo json_encode(['error' => true, 'message' => 'El código proporcionado no corresponde al lenguaje seleccionado']);
     }
 }
+
