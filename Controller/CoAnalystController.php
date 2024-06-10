@@ -23,8 +23,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $engine_parsing = $parser_model->is_function($codigo);
     
     if (strtolower($engine_parsing) == strtolower($lenguaje)) {
-        $codigo_parsing = $parser_model->fixIndentation($codigo);
-        $send_code = $rest_model->runCode($codigo_parsing, $lenguaje);
+        $send_code = $rest_model->runCode($codigo, $lenguaje);
         $response = json_decode($send_code, true);
 
         if (isset($response['success']) && $response['success']) {
@@ -37,3 +36,4 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo json_encode(['error' => true, 'message' => 'El código proporcionado no corresponde al lenguaje seleccionado']);
     }
 }
+

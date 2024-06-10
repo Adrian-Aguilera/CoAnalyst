@@ -38,11 +38,28 @@ class Rest_Controller {
         
         $result = curl_exec($ch);
         curl_close($ch);
-
+        
         if ($result === false) {
-            return json_encode(['error' => false, 'message' => 'Error al ejecutar el script.']);
+            // Error en la llamada de cURL, posible problema de red o configuración
+            return json_encode(['error' => true, 'message' => 'Error al realizar la solicitud al servidor.']);
         }
-        return json_encode(['success' => true, 'data' => $result]);
+        
+        // Decodificar la respuesta JSON para analizarla
+        $response = json_decode($result, true);
+        
+        if ($response === null && json_last_error() !== JSON_ERROR_NONE) {
+            // Error en la decodificación JSON
+            return json_encode(['error' => true, 'message' => 'Error en la decodificación de la respuesta.']);
+        }
+        
+        // Dado que statusCode siempre es 200, verificamos directamente el contenido del output
+        if (strpos($response['output'], 'SyntaxError') !== false || strpos($response['output'], 'Error') !== false) {
+            // Si encontramos términos que indican un error en el output, respondemos con error
+            return json_encode(['error' => true, 'message' => 'Error en la ejecución del script: ' . $response['output']]);
+        } else {
+            // Si el output no contiene indicadores de error, asumimos que la ejecución fue correcta
+            return json_encode(['success' => true, 'data' => $response['output']]);
+        }
     }
 }
 /*

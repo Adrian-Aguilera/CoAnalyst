@@ -18,9 +18,8 @@ class Parser_Controller {
         return false;
     }
     function fixIndentation($text, $indentation = '    ') {
-        // Añade la indentación especificada al inicio de cada nueva línea
         return preg_replace_callback("/\n/", function($matches) use ($indentation) {
-            return $matches[0] . $indentation;  // Añade la indentación después de cada salto de línea
+            return $matches[0] . $indentation;
         }, $text);
     }
     

@@ -413,16 +413,26 @@
                 event.preventDefault(); // Prevenir recarga de la página
 
                 const formData = new FormData(form); // Capturar datos del formulario
+                console.log(formData);
                 fetch('../Controller/CoAnalystController.php', {
                     method: 'POST',
                     body: formData
                 })
-                .then(response => response.json())
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Respuesta del servidor no fue exitosa');
+                    }
+                    return response.json();
+                })
                 .then(data => {
-                    swal('Solicitud procesada',data.message,'success');
+                    if (data.success) {
+                        swal('Solicitud procesada', data.message, 'success');
+                    } else {
+                        throw new Error(data.message);
+                    }
                 })
                 .catch(error => {
-                    swal('Error','Error al procesar la solicitud: ' + error,'error');
+                    swal('Error', 'Error al procesar la solicitud: ' + error.message, 'error');
                 });
             });
         });
