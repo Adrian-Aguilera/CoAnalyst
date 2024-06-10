@@ -51,7 +51,7 @@ class AlldataModel {
             } else {
                 echo "No se pudo insertar los datos.";
             }
-
+  
             // Cerrar la sentencia
             $instancia->close();
         }else{
