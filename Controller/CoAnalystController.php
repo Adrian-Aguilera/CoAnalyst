@@ -1,8 +1,9 @@
 <?php
 require "Rest_Controller.php";
 require "Parser_Controller.php";
-
-class get_data {
+require "ResponseController.php";
+require "../Model/CoAnalystModel.php";
+class GetData {
     public function data_input() {
         $codigo = isset($_POST['code']) ? htmlspecialchars($_POST['code']) : '';
         $language = isset($_POST['language']) ? htmlspecialchars($_POST['language']) : 'No seleccionado';
@@ -11,20 +12,22 @@ class get_data {
     }
 }
 
-$rest_model = new Rest_Controller();
-$parser_model = new Parser_Controller();
-$data_input = new get_data();
+$restModel = new Rest_Controller();
+$parserModel = new Parser_Controller();
+$dataInput = new GetData();
+$modelo_db = new AlldataModel();
+$responseController = new ResponseController($modelo_db);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    list ($codigo, $lenguaje) = $data_input->data_input();
-    $engine_parsing = $parser_model->is_function($codigo);
+    list($codigo, $lenguaje) = $dataInput->data_input();
+    $engineParsing = $parserModel->is_function($codigo);
     
-    if (strtolower($engine_parsing) == strtolower($lenguaje)) {
-        $send_code = $rest_model->runCode($codigo, $lenguaje);
-        $response = json_decode($send_code, true);
-        
+    if (strtolower($engineParsing) === strtolower($lenguaje)) {
+        $sendCode = $restModel->runCode($codigo, $lenguaje);
+        $result = json_decode($responseController->processResponse($sendCode));
+        $response = json_decode($result, true);
         if (isset($response['success']) && $response['success']) {
-            echo json_encode(['success' => true, 'message' => 'Codigo compilado con exito']);
+            echo json_encode(['success' => true, 'message' => $response['message']]);
         } else {
             $message = isset($response['message']) ? $response['message'] : 'Error desconocido.';
             echo json_encode(['error' => true, 'message' => 'Error: ' . $message]);
@@ -33,4 +36,3 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         echo json_encode(['error' => true, 'message' => 'El código proporcionado no corresponde al lenguaje seleccionado']);
     }
 }
-

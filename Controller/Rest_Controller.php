@@ -24,7 +24,7 @@ class Rest_Controller {
             'language' => $language,
             'versionIndex' => '0'
         ];
-
+    
         $data_string = json_encode($data);
         $ch = curl_init($this->url);
         
@@ -39,31 +39,8 @@ class Rest_Controller {
         $result = curl_exec($ch);
         curl_close($ch);
         
-        if ($result === false) {
-            return json_encode(['error' => true, 'message' => 'Error al realizar la solicitud al servidor.']);
-        }
-        
-        $response = json_decode($result, true);
-        $this->logs($result);
-        if ($response === null && json_last_error() !== JSON_ERROR_NONE) {
-            return json_encode(['error' => true, 'message' => 'Error en la decodificación de la respuesta.']);
-        }
-        
-        // como estatus code siempre es 200:
-        if (strpos($response['output'], 'SyntaxError') !== false || strpos($response['output'], 'Error') !== false) {
-            // Si encontramos términos que indican un error en el output, respondemos con error
-            return json_encode(['error' => true, 'message' => 'Error en la ejecución del script: ' . $response['output']]);
-        } else {
-            // si la respuestas no tiene errores es correcta:
-            return json_encode(['success' => true, 'data' => $response['output']]);
-        }
-    }
-    public function logs($result){
-        //guardar logs
-        $logFile = '../logs/logfile.log';
-        file_put_contents($logFile, $result . PHP_EOL, FILE_APPEND);
-
-    }
+        return $result;
+    }    
 }
 /*
 $restController = new Rest_Controller();
