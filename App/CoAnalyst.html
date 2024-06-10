@@ -228,16 +228,63 @@
             .input-responsive{
                 width: 90%;
             }
+            .reload{
+                display: flex;
+                margin-left: 2%;
+                background-color: #444444;
+                color: #fff;
+                width: 9%;
+                border-radius: 4px;
+                height: 28px;
+                justify-content: center;
+                align-items: flex-end;
+            }
         }
         @media (max-width: 1024px) {
             .data-info{
                 margin-right:20px;
+            }
+            .reload{
+                display: flex;
+                margin-left: 42%;
+                background-color: #444444;
+                color: #fff;
+                width: 9%;
+                border-radius: 4px;
+                height: 28px;
+                justify-content: center;
+                align-items: flex-end;
             }
         }
         @media (max-width: 1477px) {
             .data-info{
                 margin-right:20px;
             }
+            .reload{
+                display: flex;
+                margin-left: 30%;
+                background-color: #444444;
+                color: #fff;
+                width: 9%;
+                border-radius: 4px;
+                height: 28px;
+                justify-content: center;
+                align-items: flex-end;
+            }
+        }
+        .reload{
+            display: flex;
+            margin-left: 41%;
+            background-color: #444444;
+            color: #fff;
+            width: 6%;
+            border-radius: 4px;
+            height: 28px;
+            justify-content: center;    
+            align-items: flex-end;
+        }
+        .color-reload{
+            color: #fff;
         }
     </style>
 </head>
@@ -366,22 +413,31 @@
                 <div class="data-title" style="margin-left: 25px;">
                     <div class="title-table" >
                         <h5>Estadisticas</h5>
+                        <div class="search-input reload">  
+                            <a href="http://" class="color-reload">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"/>
+                                    <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"/>
+                                </svg>
+                            </a>
+                        </div>
                         <div class="search-input">
                             <input type="text" name="" id="" placeholder="Buscar" class="input-text">
                             <input type="submit" value="Buscar" class="btn-submit">
                         </div>
+
                     </div>
                 </div>
                 <div class="data-input" style="margin: 18px; margin-bottom: 25px;">
-                    <!--<textarea style="width: 99%;height: 100%;" name="code" id="code" cols="40" rows="20" placeholder="Type here"></textarea>-->
                     <table class="table" style="width: 100%;">
                         <thead>
                           <tr>
-                            <th scope="col">Nombre</th>
+                            <th scope="col">id</th>
                             <th scope="col">Tiempo de ejecucion</th>
                             <th scope="col">Calidad</th>
-                            <th scope="col">Complejidad</th>
-                            <th scope="col">Complejidad</th>
+                            <th scope="col">memoria usada</th>
+                            <th scope="col">tiempo</th>
+                            <th scope="col">estado</th>
                           </tr>
                         </thead>
                         <tbody>
@@ -391,24 +447,8 @@
                             <td>Otto</td>
                             <td>@mdo</td>
                             <td>@mdo</td>
-
+                            <td>@mdo</td>
                           </tr>
-                          <tr>
-                            <th scope="row">2</th>
-                            <td>Jacob</td>
-                            <td>Thornton</td>
-                            <td>@fat</td>
-                            <td>@fat</td>
-
-                          </tr>
-                          <tr>
-                            <th scope="row">3</th>
-                            <td>Larry the Bird</td>
-                            <td>@twitter</td>
-                            <td>@twitter</td>
-                            <td>Larry the Bird</td>
-                          </tr>
-                          
                         </tbody>
                       </table>
                 </div>
