@@ -289,7 +289,7 @@
                                     </svg>
                                 </div>
                             </div>
-                            <p style="display: flex; text-align: justify;">La funcion no debe contener caracteres especiales ni comentarios </p>
+                            <p style="display: flex; text-align: justify;">La funcion no debe contener caracteres especiales ni comentarios* </p>
                         </div>
                         <div class="data-inter display-flex">
                             <div class="data-input" style="margin-left: 25px; margin-bottom: 25px;">
@@ -419,10 +419,10 @@
                 })
                 .then(response => response.json())
                 .then(data => {
-                    swal(':D',data.message,'success');
+                    swal('Solicitud procesada',data.message,'success');
                 })
                 .catch(error => {
-                    swal(':(','Error al procesar la solicitud: ' + error,'error');
+                    swal('Error','Error al procesar la solicitud: ' + error,'error');
                 });
             });
         });
