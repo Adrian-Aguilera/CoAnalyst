@@ -38,31 +38,34 @@ class AlldataModel {
         $query_insert = $this->Insert_datos."('$consulta_id','$tiempo_ejecucion','$complejidad','$memoria_usada','$tiempo','$estado')";
         $conexion_privada = $this->conexion_data;
         if ($conexion_privada){
-            //$resultado = $conexion_privada->query($query_insert);
-            $instancia = $this->conexion_data->prepare($query_insert);
-            if ($instancia === false) {
-                die('Error al preparar la consulta: ' . $this->conexion_data->error);
+            $consulta =$conexion_privada->query($query_insert);
+            if($consulta == true){
+                $conexion_privada->close();
+                return "Inserción exitosa";
+            }else{
+                $conexion_privada->close();
+                return "error";
             }
-            $instancia->bind_param('sissss', $consulta_id, $tiempo_ejecucion, $complejidad, $memoria_usada, $tiempo, $estado);
-            $instancia->execute();
-            // Comprobar si la inserción fue exitosa
-            if ($instancia->affected_rows > 0) {
-                echo "Datos insertados correctamente.";
-            } else {
-                echo "No se pudo insertar los datos.";
-            }
-  
-            // Cerrar la sentencia
-            $instancia->close();
         }else{
-            echo "error conexion db";
+            return "error conexion db";
         }
     }
 }
 /*
 $mode_db = new AlldataModel();
-$all_data = $mode_db->AllCodeTest();
+$all_data = $mode_db->AllDataRegister();
+$consulta_id = 1;
+$tiempo_eje = "1s";
+$complejidad = "epico";
+$memoria = "mucha";
+$tiempo = "asd";
+$estado = "activp";
+$insercion = $mode_db->Insert_Datos($consulta_id,$tiempo_eje, $complejidad,$memoria,$tiempo, $estado);
+if ($insercion === "Inserción exitosa") {
+    echo "Datos insertados correctamente.";
+} else {
+    echo "Error al insertar los datos: $insercion";
+}
 
-echo "<pre>";
-    print_r($all_data);
-echo "</pre>";*/
+echo $all_data;
+*/
