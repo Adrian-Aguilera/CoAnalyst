@@ -1,6 +1,7 @@
 <?php
 require "Rest_Controller.php";
 require "Parser_Controller.php";
+
 class get_data {
     public function data_input() {
         $codigo = isset($_POST['code']) ? htmlspecialchars($_POST['code']) : '';
@@ -21,7 +22,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (strtolower($engine_parsing) == strtolower($lenguaje)) {
         $send_code = $rest_model->runCode($codigo, $lenguaje);
         $response = json_decode($send_code, true);
-
+        
         if (isset($response['success']) && $response['success']) {
             echo json_encode(['success' => true, 'message' => 'Codigo compilado con exito']);
         } else {

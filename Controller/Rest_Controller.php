@@ -44,10 +44,7 @@ class Rest_Controller {
         }
         
         $response = json_decode($result, true);
-        //guardar logs
-        $logFile = 'logfile.log';
-        file_put_contents($logFile, $result . PHP_EOL, FILE_APPEND);
-
+        $this->logs($response);
         if ($response === null && json_last_error() !== JSON_ERROR_NONE) {
             return json_encode(['error' => true, 'message' => 'Error en la decodificación de la respuesta.']);
         }
@@ -60,6 +57,12 @@ class Rest_Controller {
             // si la respuestas no tiene errores es correcta:
             return json_encode(['success' => true, 'data' => $response['output']]);
         }
+    }
+    public function logs($result){
+        //guardar logs
+        $logFile = '../logs/logfile.log';
+        file_put_contents($logFile, $result . PHP_EOL, FILE_APPEND);
+
     }
 }
 /*
