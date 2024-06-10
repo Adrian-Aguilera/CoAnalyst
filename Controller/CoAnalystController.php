@@ -1,35 +1,40 @@
 <?php
 require "Rest_Controller.php";
 require "Parser_Controller.php";
-
-class get_data{
-    public function data_input(){
+require "ResponseController.php";
+require "../Model/CoAnalystModel.php";
+class GetData {
+    public function data_input() {
         $codigo = isset($_POST['code']) ? htmlspecialchars($_POST['code']) : '';
         $language = isset($_POST['language']) ? htmlspecialchars($_POST['language']) : 'No seleccionado';
 
-        return  array($codigo, $language);
+        return array($codigo, $language);
     }
 }
 
-$rest_model = new Rest_Controller();
-$parser_model = new Parser_Controller();
-$data_input = new get_data();
+$restModel = new Rest_Controller();
+$parserModel = new Parser_Controller();
+$dataInput = new GetData();
+$modelo_db = new AlldataModel();
+$responseController = new ResponseController($modelo_db);
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    list ($codigo, $lenguaje) = $data_input->data_input();
-    /*parseando codigo de entrada para solo admitir funciones*/
-    $engine_parsing = $parser_model->is_function($codigo);
-    
-    if (strtolower($engine_parsing) == strtolower($lenguaje)) {
-        $send_code = $rest_model->runCode($codigo, $lenguaje);
-        $response = json_decode($send_code, true); // Decodificar JSON a array
-        if ($response['success']) {
-            echo json_encode(['success' => true, 'message' => 'Función funciona correctamente', 'data' => $response['data']]);
+    list($codigo, $lenguaje) = $dataInput->data_input();
+    $engineParsing = $parserModel->is_function($codigo);
+
+    if (strtolower($engineParsing) === strtolower($lenguaje)) {
+        $sendCode = $restModel->runCode($codigo, $lenguaje);
+        $result = $responseController->processResponse($sendCode);
+        $response = json_decode($result, true);
+
+        if (isset($response['success']) && $response['success']) {
+            echo json_encode(['success' => true, 'message' => $response['message']]);
         } else {
-            echo json_encode(['error' => false, 'message' => 'La función tiene un error: ' . $response['message']]);
+            $message = isset($response['message']) ? $response['message'] : 'Error desconocido.';
+            echo json_encode(['error' => true, 'message' => 'Error: ' . $message]);
         }
     } else {
-        echo json_encode(['success' => false, 'message' => 'El código proporcionado no corresponde al lenguaje seleccionado']);
+        echo json_encode(['error' => true, 'message' => 'El código proporcionado no corresponde al lenguaje seleccionado']);
     }
-    
 }
+

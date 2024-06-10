@@ -17,23 +17,10 @@ class Parser_Controller {
         }
         return false;
     }
-}
-/*
-// Ejemplo de uso
-$parser = new Parser_Controller();
-$codigoCSharp = 'public String metodoString(int n)
-{
-    if(n == 0)
-    {
-        return "a";
+    function fixIndentation($text, $indentation = '    ') {
+        return preg_replace_callback("/\n/", function($matches) use ($indentation) {
+            return $matches[0] . $indentation;
+        }, $text);
     }
-    return "x";
+    
 }
-';
-$language = $parser->is_function($codigoCSharp);
-if ($language) {
-    echo "Función detectada en el lenguaje: $language";
-} else {
-    echo "No se detectó como función.";
-}
-*/

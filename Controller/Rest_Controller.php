@@ -24,7 +24,7 @@ class Rest_Controller {
             'language' => $language,
             'versionIndex' => '0'
         ];
-
+    
         $data_string = json_encode($data);
         $ch = curl_init($this->url);
         
@@ -38,10 +38,36 @@ class Rest_Controller {
         
         $result = curl_exec($ch);
         curl_close($ch);
-
-        if ($result === false) {
-            return json_encode(['error' => false, 'message' => 'Error al ejecutar el script.']);
-        }
-        return json_encode(['success' => true, 'data' => $result]);
-    }
+        
+        return $result;
+    }    
 }
+/*
+$restController = new Rest_Controller();
+
+$script = "
+def test():\n print(5+5)\ntest()
+"; 
+$language = 'python3';
+
+$response = $restController->runCode($script, $language, $local_modo = true);
+echo $response;
+$responseData = json_decode($response, true);
+if (isset($responseData['success']) && $responseData['success']) {
+    echo "Script executed successfully:\n";
+    echo $responseData['data'];
+} else {
+    echo "Error executing script:\n";
+    echo $responseData['message'];
+}
+/*
+$code = '
+def hello_world():
+print("Hello, World!")
+if True:
+print("This is indented.")
+';
+
+$fixedCode = $restController->fixIndentation($code);
+echo "<pre>$fixedCode</pre>";
+*/
