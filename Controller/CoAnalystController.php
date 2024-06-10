@@ -27,7 +27,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $response = json_decode($send_code, true);
 
         if (isset($response['success']) && $response['success']) {
-            echo json_encode(['success' => true, 'message' => 'Data: ' . $response['data']]);
+            echo json_encode(['success' => true, 'message' => 'Codigo compilado con exito']);
         } else {
             $message = isset($response['message']) ? $response['message'] : 'Error desconocido.';
             echo json_encode(['error' => true, 'message' => 'Error: ' . $message]);
