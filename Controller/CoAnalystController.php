@@ -27,10 +27,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $response = json_decode($send_code, true);
 
         if (isset($response['success']) && $response['success']) {
-            echo json_encode(['success' => true, 'message' => 'Función funciona correctamente. Data: ' . $response['data']]);
+            echo json_encode(['success' => true, 'message' => 'Data: ' . $response['data']]);
         } else {
             $message = isset($response['message']) ? $response['message'] : 'Error desconocido.';
-            echo json_encode(['error' => true, 'message' => 'La función tiene un error: ' . $message]);
+            echo json_encode(['error' => true, 'message' => 'Error: ' . $message]);
         }
     } else {
         echo json_encode(['error' => true, 'message' => 'El código proporcionado no corresponde al lenguaje seleccionado']);
