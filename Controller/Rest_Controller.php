@@ -45,3 +45,32 @@ class Rest_Controller {
         return json_encode(['success' => true, 'data' => $result]);
     }
 }
+/*
+$restController = new Rest_Controller();
+
+$script = "
+def test():\n print(5+5)\ntest()
+"; 
+$language = 'python3';
+
+$response = $restController->runCode($script, $language);
+
+$responseData = json_decode($response, true);
+if (isset($responseData['success']) && $responseData['success']) {
+    echo "Script executed successfully:\n";
+    echo $responseData['data'];
+} else {
+    echo "Error executing script:\n";
+    echo $responseData['message'];
+}
+/*
+$code = '
+def hello_world():
+print("Hello, World!")
+if True:
+print("This is indented.")
+';
+
+$fixedCode = $restController->fixIndentation($code);
+echo "<pre>$fixedCode</pre>";
+*/

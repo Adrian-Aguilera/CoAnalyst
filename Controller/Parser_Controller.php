@@ -1,7 +1,6 @@
 <?php
 
 class Parser_Controller {
-    /*La funcion no debe contener caracteres especiales ni comentarios */
     public function is_function($text) {
         $text = trim($text);
         $patterns = [
@@ -18,23 +17,11 @@ class Parser_Controller {
         }
         return false;
     }
-}
-/*
-// Ejemplo de uso
-$parser = new Parser_Controller();
-$codigoCSharp = 'public String metodoString(int n)
-{
-    if(n == 0)
-    {
-        return "a";
+    function fixIndentation($text, $indentation = '    ') {
+        // Añade la indentación especificada al inicio de cada nueva línea
+        return preg_replace_callback("/\n/", function($matches) use ($indentation) {
+            return $matches[0] . $indentation;  // Añade la indentación después de cada salto de línea
+        }, $text);
     }
-    return "x";
+    
 }
-';
-$language = $parser->is_function($codigoCSharp);
-if ($language) {
-    echo "Función detectada en el lenguaje: $language";
-} else {
-    echo "No se detectó como función.";
-}
-*/
