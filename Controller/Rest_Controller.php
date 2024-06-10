@@ -44,7 +44,7 @@ class Rest_Controller {
         }
         
         $response = json_decode($result, true);
-        $this->logs($response);
+        $this->logs($result);
         if ($response === null && json_last_error() !== JSON_ERROR_NONE) {
             return json_encode(['error' => true, 'message' => 'Error en la decodificación de la respuesta.']);
         }
