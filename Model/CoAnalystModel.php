@@ -19,7 +19,7 @@ class AlldataModel {
         $this->all_resultados = $_ENV["ALL_DATA"];
 
     }
-    public function AllCodeTest(){
+    public function AllDataRegister(){
         $resultados = [];
         $query = $this->all_resultados;
         if ($this->conexion_data) {
