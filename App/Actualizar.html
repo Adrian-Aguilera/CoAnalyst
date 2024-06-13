@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Editar Usuarios</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <div class="formulario">
+        <h1>Editar Usuarios</h1>
+        <form action="../Controller/ActualizarController.php" method="post">
+            <div class="username">
+                <input type="text" name="username" required>
+                <label>Nombre de Usuario</label>
+            </div>
+            <div class="username">
+                <input type="text" name="password" required>
+                <label>Contraseña</label>
+            </div>
+            <input type="submit" value="Editar">
+        </form>
+    </div>
+</body>
+</html>
