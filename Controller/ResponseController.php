@@ -19,7 +19,8 @@ class ResponseController
         }
 
         $response = json_decode($result, true);
-        $this->logResult($result);
+        $name = '../logs/logfile.log';
+        $this->logResult($result, $name);
 
         if ($response === null && json_last_error() !== JSON_ERROR_NONE) {
             return json_encode(['error' => true, 'message' => 'Error en la decodificación de la respuesta.']);
@@ -27,6 +28,12 @@ class ResponseController
         if (isset($response['output']) && (strpos($response['output'], 'SyntaxError') !== false || strpos($response['output'], 'Error') !== false)) {
             return json_encode(['error' => true, 'message' => 'Error en la ejecución del script: ' . $response['output']]);
         } else {
+            $user_id = 1;
+            $complejidad = 'eficiente';
+            $response_insert = $this->Data_insert($user_id, $complejidad, $result);
+            $log_insert = '../logs/log_insert.log';
+            $this->logResult($response_insert, $log_insert);
+
             return json_encode(['success' => true, 'message' => $response['output']]);
         }
     }
@@ -61,9 +68,9 @@ class ResponseController
         $resultado = $this->select_all_AllDataEstadsticas();
         return $resultado;
     }
-    private function logResult($result)
+    private function logResult($result, $name)
     {
-        $logFile = '../logs/logfile.log';
+        $logFile = $name;
         file_put_contents($logFile, $result . PHP_EOL, FILE_APPEND);
     }
 }

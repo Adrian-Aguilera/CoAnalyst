@@ -60,7 +60,7 @@ class AlldataModel {
         return $resultados;
     }
     public function Insert_Datos($user_id,$tiempo_ejecucion, $complejidad, $memoria_usada, $estado){
-        $query_insert = $this->Insert_datos."('$user_id','$tiempo_ejecucion','$complejidad','$memoria_usada','$estado')";
+        $query_insert = $this->Insert_datos."($user_id,'$tiempo_ejecucion','$complejidad','$memoria_usada','$estado')";
         $conexion_privada = $this->conexion_data;
         if ($conexion_privada){
             $consulta =$conexion_privada->query($query_insert);
