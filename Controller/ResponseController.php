@@ -90,9 +90,4 @@ class ResponseController
         $logFile = $name;
         file_put_contents($logFile, $result . PHP_EOL, FILE_APPEND);
     }
-    public function cerrar(){
-        $LocalFuncionesDB = $this->obj_db;
-        $responseDB = $LocalFuncionesDB->destruct();
-        return $responseDB;
-    }
 }

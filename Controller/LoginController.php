@@ -22,6 +22,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     header("Location: ../App/CoAnalyst.html");
     echo "bien";
   }else {
-    echo "mal";
+    header("Location: ../index.html");
   }
 }

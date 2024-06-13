@@ -164,18 +164,6 @@ class AlldataModel {
         $this->logResult($query_insert, $log_insert);
         return $resultados;
     }
-    public function destruct(){
-        $response = $this->conexion_data->close();
-        $this->__destruct();
-        if ($response){
-            return true;
-        }else{
-            return false;
-        }
-    }
-    public function __destruct() {
-        $this->conexion_data->close();
-    }
 }
 
 /*

@@ -1,24 +1,24 @@
 <?php
 require_once '../DB/Conexion.php';
- 
+$obj_db = new Coanalystdb();
+$conexion = $obj_db->getConnection(); 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $username = $_POST['username'];
     $password = $_POST['password'];
  
     // Primero, verifica si el usuario ya existe
     $checkUser = "SELECT * FROM usuarios WHERE username = '$username'";
-    $result = $conn->query($checkUser);
+    $result = $conexion->query($checkUser);
  
     if ($result->num_rows > 0) {
         // El usuario existe, así que lo editamos
-        $sql = "UPDATE usuarios SET pass ='$password' WHERE username ='$username'";
-        if ($conn->query($sql) == true) {
-            echo "Usuario editado exitosamente";
+        $sql = "UPDATE usuarios SET `password` ='$password' WHERE `username` ='$username'";
+        if ($conexion->query($sql) == true) {
+            header("location: ../index.html");
         } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+            header("location: ../CoAnalyst.html");
         }
     } else {
         echo "El usuario no existe.";
     }
 }
-?>
