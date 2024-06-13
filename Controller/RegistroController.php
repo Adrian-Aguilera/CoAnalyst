@@ -17,9 +17,7 @@ $modelo_db = new AlldataModel();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     list($username, $password, $email) = $dataInput->data_input();
 
-    // Primero, verifica si el usuario ya existe
     $checkUser = $modelo_db->ValidateUser($username);
-    echo $checkUser."<br>";
 
     if ($checkUser == "Usuario Existente") {
         echo "El nombre de usuario ya está en uso. Por favor, elige otro.";

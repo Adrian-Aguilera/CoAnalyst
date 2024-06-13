@@ -11,6 +11,7 @@ class AlldataModel {
     private $Insert_datos;
     private $CrearUsuarios;
     private $ValidateUsers;
+    private $loginValidate;
 
     public function __construct()
     {
@@ -25,7 +26,7 @@ class AlldataModel {
         $this->all_user = $_ENV["ALL_USER"];
         $this->CrearUsuarios = $_ENV['CREATEUSER'];
         $this->ValidateUsers = $_ENV['checkUser'];
-
+        $this->loginValidate = $_ENV['LOGIN_CONSULTA'];
     }
     public function AllDataEstadsticas(){
         $resultados = [];
@@ -118,6 +119,26 @@ class AlldataModel {
     {
         $logFile = $name;
         file_put_contents($logFile, $result . PHP_EOL, FILE_APPEND);
+    }
+
+    public function Login($username, $password){
+        $query_insert = $this->loginValidate."'$username' AND password= '$password'";
+        $conexion_privada = $this->conexion_data;
+        session_start();
+        if ($conexion_privada){
+            $consulta =$conexion_privada->query($query_insert);
+            if($consulta->num_rows==1){
+                $_SESSION['username']=$username;
+                $conexion_privada->close();
+                return "Conexion Exitosa";
+            }else{
+                $conexion_privada->close();
+                return "error";
+            }
+        }else{
+            $conexion_privada->close();
+            return "error conexion db";
+        }
     }
 }
 
