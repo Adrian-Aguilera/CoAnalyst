@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de Sesion</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="formulario">
+        <h1>Inicio de Sesion</h1>
+        <form action="Controller/LoginController.php" method="post">
+            <div class="username">
+                <input type="text" name="usern" required>
+                <label>Nombre de Usuario</label>
+            </div>
+            <div class="username">
+                <input type="password" name="pass" required>
+                <label>Contraseña</label>
+            </div>
+            <div class="recordar">
+                ¿Olvido su Contraseña?
+            </div>
+            <input type="submit" value="Iniciar">
+            <div class="registrarse">
+                ¿No tienes una cuenta?<br>
+                <a href="App/Registro.html" target="_blank">Registrate</a>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
