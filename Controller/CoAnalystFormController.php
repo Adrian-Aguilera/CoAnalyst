@@ -2,7 +2,6 @@
 require "Rest_Controller.php";
 require "Parser_Controller.php";
 require "ResponseController.php";
-require "../Model/CoAnalystModel.php";
 class GetData {
     public function data_input() {
         $codigo = isset($_POST['code']) ? htmlspecialchars($_POST['code']) : '';
@@ -15,8 +14,7 @@ class GetData {
 $restModel = new Rest_Controller();
 $parserModel = new Parser_Controller();
 $dataInput = new GetData();
-$modelo_db = new AlldataModel();
-$responseController = new ResponseController($modelo_db);
+$responseController = new ResponseController();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     list($codigo, $lenguaje) = $dataInput->data_input();
