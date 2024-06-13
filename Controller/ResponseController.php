@@ -1,11 +1,15 @@
 <?php
+
+require "../Model/CoAnalystModel.php";
 class ResponseController
 {
-    private $Modelo_CRUD;
 
-    public function __construct($Model_db)
+    private $obj_db;
+
+    public function __construct()
     {
-        $this->Modelo_CRUD = $Model_db;
+        $modelo_db = new AlldataModel();
+        $this->obj_db = $modelo_db;
     }
 
     public function processResponse($result)
@@ -23,12 +27,40 @@ class ResponseController
         if (isset($response['output']) && (strpos($response['output'], 'SyntaxError') !== false || strpos($response['output'], 'Error') !== false)) {
             return json_encode(['error' => true, 'message' => 'Error en la ejecución del script: ' . $response['output']]);
         } else {
-            // $this->Modelo_CRUD->Insert_Datos($response['data']);
             return json_encode(['success' => true, 'message' => $response['output']]);
         }
     }
 
+    private function Data_insert($user_id, $complejidad, $datos_input){
+        $LocalDBFunciones = $this->obj_db;
+        $datos_individuales = json_decode($datos_input, true);
+        $tiempo_ejecucion = $datos_individuales['cpuTime'];
+        $memoria_usada = $datos_individuales['memory'];
+        $statusCode = $datos_individuales['statusCode'];
+        $reponse_db = $LocalDBFunciones->Insert_Datos($user_id,$tiempo_ejecucion, $complejidad, $memoria_usada, $statusCode);
+        if($reponse_db == "Inserción exitosa"){
+            return $reponse_db;
+        }else{
+            return $reponse_db;
+        }
+    }
+    private function select_all_AllDataEstadsticas(){
+        $LocalFuncionesDB = $this->obj_db;
+        $response_db = $LocalFuncionesDB->AllDataEstadsticas();
+        if($response_db == "No hay datos"){
+            return $response_db;
+        }elseif($response_db == "Error en la conexión a la base de datos."){
+            return $response_db;
+        }else{
+            //para este punto $response_db trae una lista con los datos
+            return $response_db;
+        }
+    }
 
+    public function getAll_datos(){
+        $resultado = $this->select_all_AllDataEstadsticas();
+        return $resultado;
+    }
     private function logResult($result)
     {
         $logFile = '../logs/logfile.log';

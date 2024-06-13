@@ -441,14 +441,6 @@
                           </tr>
                         </thead>
                         <tbody>
-                          <tr>
-                            <th scope="row">1</th>
-                            <td>Mark</td>
-                            <td>Otto</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
-                            <td>@mdo</td>
-                          </tr>
                         </tbody>
                       </table>
                 </div>
@@ -480,7 +472,7 @@
                 });
                 const formData = new FormData(form);
                 console.log(formData);
-                fetch('../Controller/CoAnalystController.php', {
+                fetch('../Controller/CoAnalystFormController.php', {
                     method: 'POST',
                     body: formData
                 })
@@ -504,6 +496,28 @@
             });
         });
     </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            fetch('../Controller/CoAnalystListaController.php')
+                .then(response => response.json())
+                .then(data => {
+                    const tableBody = document.querySelector('.table tbody');
+                    data.forEach(item => {
+                        const row = `<tr>
+                            <th scope="row">${item.id}</th>
+                            <td>${item.tiempo_ejecucion}</td>
+                            <td>${item.complejidad}</td>
+                            <td>${item.memoria_usada}</td>
+                            <td>${item.tiempo}</td>
+                            <td>${item.estado}</td>
+                        </tr>`;
+                        tableBody.innerHTML += row;
+                    });
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+        
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 </html>
