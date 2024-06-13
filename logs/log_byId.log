@@ -1,0 +1,215 @@
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+4
+SELECT * FROM usuarios WHERE username = 4
+
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 4
+SELECT * FROM estadisticas WHERE user_id = 4
+SELECT * FROM estadisticas WHERE user_id = 4
+SELECT * FROM estadisticas WHERE user_id = 4
+SELECT * FROM estadisticas WHERE user_id = 4
+SELECT * FROM estadisticas WHERE user_id = 4
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 7
+SELECT * FROM estadisticas WHERE user_id = 7
+SELECT * FROM estadisticas WHERE user_id = 8
+SELECT * FROM estadisticas WHERE user_id = 8
+SELECT * FROM estadisticas WHERE user_id = 8
+SELECT * FROM estadisticas WHERE user_id = 8
+SELECT * FROM estadisticas WHERE user_id = 10
+SELECT * FROM estadisticas WHERE user_id = 10
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 13
+SELECT * FROM estadisticas WHERE user_id = 14
+SELECT * FROM estadisticas WHERE user_id = 14
+SELECT * FROM estadisticas WHERE user_id = 14
+SELECT * FROM estadisticas WHERE user_id = 14
+SELECT * FROM estadisticas WHERE user_id = 14
+SELECT * FROM estadisticas WHERE user_id = 14
+SELECT * FROM estadisticas WHERE user_id = 14
+SELECT * FROM estadisticas WHERE user_id = 14
+SELECT * FROM estadisticas WHERE user_id = 14
+SELECT * FROM estadisticas WHERE user_id = 14
+SELECT * FROM estadisticas WHERE user_id = 14
+SELECT * FROM estadisticas WHERE user_id = 14
+SELECT * FROM estadisticas WHERE user_id = 14
+SELECT * FROM estadisticas WHERE user_id = 14
+SELECT * FROM estadisticas WHERE user_id = 14
+SELECT * FROM estadisticas WHERE user_id = 14
+SELECT * FROM estadisticas WHERE user_id = 14
+SELECT * FROM estadisticas WHERE user_id = 5
+SELECT * FROM estadisticas WHERE user_id = 5
+SELECT * FROM estadisticas WHERE user_id = 5
+SELECT * FROM estadisticas WHERE user_id = 5
+SELECT * FROM estadisticas WHERE user_id = 5
+SELECT * FROM estadisticas WHERE user_id = 5
+SELECT * FROM estadisticas WHERE user_id = 5
+SELECT * FROM estadisticas WHERE user_id = 5
+SELECT * FROM estadisticas WHERE user_id = 5
+SELECT * FROM estadisticas WHERE user_id = 5
+SELECT * FROM estadisticas WHERE user_id = 5
+SELECT * FROM estadisticas WHERE user_id = 5
+SELECT * FROM estadisticas WHERE user_id = 5
+SELECT * FROM estadisticas WHERE user_id = 5
+SELECT * FROM estadisticas WHERE user_id = 5
+SELECT * FROM estadisticas WHERE user_id = 5
+SELECT * FROM estadisticas WHERE user_id = 5
+SELECT * FROM estadisticas WHERE user_id = 5
+SELECT * FROM estadisticas WHERE user_id = 5
+SELECT * FROM estadisticas WHERE user_id = 5
+SELECT * FROM estadisticas WHERE user_id = 5
+SELECT * FROM estadisticas WHERE user_id = 5
+SELECT * FROM estadisticas WHERE user_id = 5
+SELECT * FROM estadisticas WHERE user_id = 5
+SELECT * FROM estadisticas WHERE user_id = 5
+SELECT * FROM estadisticas WHERE user_id = 5
+SELECT * FROM estadisticas WHERE user_id = 5
+SELECT * FROM estadisticas WHERE user_id = 5
+SELECT * FROM estadisticas WHERE user_id = 5
+SELECT * FROM estadisticas WHERE user_id = 5
+SELECT * FROM estadisticas WHERE user_id = 15
+SELECT * FROM estadisticas WHERE user_id = 15
+SELECT * FROM estadisticas WHERE user_id = 15
+SELECT * FROM estadisticas WHERE user_id = 15
+SELECT * FROM estadisticas WHERE user_id = 15
+SELECT * FROM estadisticas WHERE user_id = 15
+SELECT * FROM estadisticas WHERE user_id = 15
+SELECT * FROM estadisticas WHERE user_id = 15
+SELECT * FROM estadisticas WHERE user_id = 15
+SELECT * FROM estadisticas WHERE user_id = 15
+SELECT * FROM estadisticas WHERE user_id = 15
+SELECT * FROM estadisticas WHERE user_id = 15
+SELECT * FROM estadisticas WHERE user_id = 15
+SELECT * FROM estadisticas WHERE user_id = 15
+SELECT * FROM estadisticas WHERE user_id = 15
+SELECT * FROM estadisticas WHERE user_id = 15
+SELECT * FROM estadisticas WHERE user_id = 15
+SELECT * FROM estadisticas WHERE user_id = 15
+SELECT * FROM estadisticas WHERE user_id = 15
+SELECT * FROM estadisticas WHERE user_id = 15
+SELECT * FROM estadisticas WHERE user_id = 14
+SELECT * FROM estadisticas WHERE user_id = 14
+SELECT * FROM estadisticas WHERE user_id = 14
+SELECT * FROM estadisticas WHERE user_id = 14
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 2
+SELECT * FROM estadisticas WHERE user_id = 4
+SELECT * FROM estadisticas WHERE user_id = 4
+SELECT * FROM estadisticas WHERE user_id = 16
+SELECT * FROM estadisticas WHERE user_id = 16
+SELECT * FROM estadisticas WHERE user_id = 16
+SELECT * FROM estadisticas WHERE user_id = 16
+SELECT * FROM estadisticas WHERE user_id = 16
+SELECT * FROM estadisticas WHERE user_id = 16
+SELECT * FROM estadisticas WHERE user_id = 7
+SELECT * FROM estadisticas WHERE user_id = 7
+SELECT * FROM estadisticas WHERE user_id = 7
+SELECT * FROM estadisticas WHERE user_id = 7
+SELECT * FROM estadisticas WHERE user_id = 7
+SELECT * FROM estadisticas WHERE user_id = 9
+SELECT * FROM estadisticas WHERE user_id = 9

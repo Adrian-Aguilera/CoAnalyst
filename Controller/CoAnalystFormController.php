@@ -22,7 +22,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
     if (strtolower($engineParsing) === strtolower($lenguaje)) {
         $sendCode = $restModel->runCode($codigo, $lenguaje);
-        $result = $responseController->processResponse($sendCode);
+        $long_code = strlen($codigo);
+        $result = $responseController->processResponse($sendCode, $long_code);
         $response = json_decode($result, true);
 
         if (isset($response['success']) && $response['success']) {

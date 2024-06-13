@@ -20,7 +20,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $checkUser = $modelo_db->ValidateUser($username);
 
     if ($checkUser == "Usuario Existente") {
-        echo "El nombre de usuario ya está en uso. Por favor, elige otro.";
+        echo "<script>swal('Solicitud procesada','El usuario ya existe', 'error');</script>";
     } else {
         $response_db = $modelo_db->CreateUser($username, $password, $email);
         echo $response_db."<br>";
