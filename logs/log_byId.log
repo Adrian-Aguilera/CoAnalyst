@@ -211,3 +211,5 @@ SELECT * FROM estadisticas WHERE user_id = 7
 SELECT * FROM estadisticas WHERE user_id = 7
 SELECT * FROM estadisticas WHERE user_id = 7
 SELECT * FROM estadisticas WHERE user_id = 7
+SELECT * FROM estadisticas WHERE user_id = 9
+SELECT * FROM estadisticas WHERE user_id = 9

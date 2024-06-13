@@ -12,7 +12,7 @@ class ResponseController
         $this->obj_db = $modelo_db;
     }
 
-    public function processResponse($result)
+    public function processResponse($result,$long_code)
     {
         if ($result === false) {
             return json_encode(['error' => true, 'message' => 'Error al realizar la solicitud al servidor.']);
@@ -28,7 +28,7 @@ class ResponseController
         if (isset($response['output']) && (strpos($response['output'], 'SyntaxError') !== false || strpos($response['output'], 'Error') !== false)) {
             return json_encode(['error' => true, 'message' => 'Error en la ejecución del script: ' . $response['output']]);
         } else {
-            $complejidad = 'eficiente';
+            $complejidad = $this->cal_complejidad($result, $long_code);
             $response_insert = $this->Data_insert($complejidad, $result);
             $log_insert = '../logs/log_insert.log';
             $this->logResult($response_insert, $log_insert);
@@ -37,6 +37,27 @@ class ResponseController
         }
     }
 
+    private function cal_complejidad($dataInput, $long_code){
+        $individual = json_decode($dataInput, true);
+        $cpuTime = $individual['cpuTime'];
+    
+
+        $umbrales = [
+            'Horrible (O(n^2))' => $long_code * $long_code * 0.01, // Ajusta el coeficiente según sea necesario
+            'Mala (O(n log n))' => $long_code * log($long_code, 2) * 0.05, // Ajusta el coeficiente según sea necesario
+            'Justa (O(n))' => $long_code * 0.1, // Ajusta el coeficiente según sea necesario
+            'Buena (O(log n))' => log($long_code, 2) * 10, // Ajusta el coeficiente según sea necesario
+            'Excelente (O(1) or better)' => 0 // Este umbral cubre todo menor a O(log n)
+        ];
+    
+        foreach ($umbrales as $etiqueta => $umbral) {
+            if ($cpuTime > $umbral) {
+                return $etiqueta;
+            }
+        }
+        return "Indefinido";
+    }
+    
     private function Data_insert($complejidad, $datos_input){
         session_start();
         $LocalDBFunciones = $this->obj_db;
