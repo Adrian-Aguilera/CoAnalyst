@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $response_db = $modelo_db->CreateUser($username, $password, $email);
         echo $response_db."<br>";
         if ($response_db == "Inserción exitosa") {
-            header("Location: ../App/CoAnalyst.html");
+            header("Location: ../index.html");
         } elseif($response_db == "error") {
             echo "F";
         }else{

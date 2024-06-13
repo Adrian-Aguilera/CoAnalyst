@@ -12,6 +12,7 @@ class AlldataModel {
     private $CrearUsuarios;
     private $ValidateUsers;
     private $loginValidate;
+    private $Data_by_Id;
 
     public function __construct()
     {
@@ -27,6 +28,7 @@ class AlldataModel {
         $this->CrearUsuarios = $_ENV['CREATEUSER'];
         $this->ValidateUsers = $_ENV['checkUser'];
         $this->loginValidate = $_ENV['LOGIN_CONSULTA'];
+        $this->Data_by_Id = $_ENV['ALL_ESTADISTCAS_BY_USER'];
     }
     public function AllDataEstadsticas(){
         $resultados = [];
@@ -102,11 +104,10 @@ class AlldataModel {
         $conexion_data = $this->conexion_data;
         if ($conexion_data){
             $consulta =$conexion_data->query($query_insert);
-            if($consulta == true){
+            if($consulta->num_rows == 1){
                 $conexion_data->close();
                 return "Usuario Existente";
             }else{
-                $conexion_data->close();
                 return "error";
             }
         }else{
@@ -128,7 +129,9 @@ class AlldataModel {
         if ($conexion_privada){
             $consulta =$conexion_privada->query($query_insert);
             if($consulta->num_rows==1){
+                $user = $consulta->fetch_assoc();
                 $_SESSION['username']=$username;
+                $_SESSION['user_id'] = $user['user_id'];  
                 $conexion_privada->close();
                 return "Conexion Exitosa";
             }else{
@@ -140,6 +143,40 @@ class AlldataModel {
             return "error conexion db";
         }
     }
+    public function Data_BY_ID($user_id){
+        $resultados = [];
+        $query_insert = $this->Data_by_Id."$user_id";
+        $conexion_privada = $this->conexion_data;
+        if ($conexion_privada) {
+            $result = $conexion_privada->query($query_insert);
+            if ($result != null){
+                while ($row = $result->fetch_assoc()) {
+                    $resultados[] = $row;
+                }
+            }else{
+                return "No hay datos";
+            }
+        } else {
+            return "Error en la conexión a la base de datos.";
+        }
+        /*Logs */
+        $log_insert = '../logs/log_byId.log';
+        $this->logResult($query_insert, $log_insert);
+        return $resultados;
+    }
+    public function destruct(){
+        $response = $this->conexion_data->close();
+        $this->__destruct();
+        if ($response){
+            return true;
+        }else{
+            return false;
+        }
+    }
+    public function __destruct() {
+        $this->conexion_data->close();
+    }
+    
 }
 
 /*
