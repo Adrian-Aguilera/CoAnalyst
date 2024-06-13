@@ -28,7 +28,7 @@ class ResponseController
         if (isset($response['output']) && (strpos($response['output'], 'SyntaxError') !== false || strpos($response['output'], 'Error') !== false)) {
             return json_encode(['error' => true, 'message' => 'Error en la ejecución del script: ' . $response['output']]);
         } else {
-            $user_id = 1;
+            $user_id = 2;
             $complejidad = 'eficiente';
             $response_insert = $this->Data_insert($user_id, $complejidad, $result);
             $log_insert = '../logs/log_insert.log';

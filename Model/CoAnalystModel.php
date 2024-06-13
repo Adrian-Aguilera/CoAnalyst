@@ -9,6 +9,8 @@ class AlldataModel {
     private $all_estadisticas;
     private $all_user;
     private $Insert_datos;
+    private $CrearUsuarios;
+    private $ValidateUsers;
 
     public function __construct()
     {
@@ -21,6 +23,8 @@ class AlldataModel {
         $this->all_estadisticas= $_ENV["ALL_ESTADISTCAS"];
         $this->Insert_datos = $_ENV["INSERT_DATA"];
         $this->all_user = $_ENV["ALL_USER"];
+        $this->CrearUsuarios = $_ENV['CREATEUSER'];
+        $this->ValidateUsers = $_ENV['checkUser'];
 
     }
     public function AllDataEstadsticas(){
@@ -75,10 +79,51 @@ class AlldataModel {
             return "error conexion db";
         }
     }
+    public function CreateUser($username, $password, $email){
+        $query_insert = $this->CrearUsuarios."('$username','$password','$email')";
+        $conexion_privada = $this->conexion_data;
+        if ($conexion_privada){
+            $consulta =$conexion_privada->query($query_insert);
+            if($consulta == true){
+                $conexion_privada->close();
+                return "Inserción exitosa";
+            }else{
+                $conexion_privada->close();
+                return "error";
+            }
+        }else{
+            return "error conexion db";
+        }
+    }
+
+    public function ValidateUser($username){
+        $query_insert = $this->ValidateUsers."'$username'";
+        $conexion_data = $this->conexion_data;
+        if ($conexion_data){
+            $consulta =$conexion_data->query($query_insert);
+            if($consulta == true){
+                $conexion_data->close();
+                return "Usuario Existente";
+            }else{
+                $conexion_data->close();
+                return "error";
+            }
+        }else{
+            $conexion_data->close();
+            return "error conexion db";
+        }
+    }
+
+    private function logResult($result, $name)
+    {
+        $logFile = $name;
+        file_put_contents($logFile, $result . PHP_EOL, FILE_APPEND);
+    }
 }
 
 /*
 $mode_db = new AlldataModel();
+/*
 $all_data = $mode_db->AllDataEstadsticas();
 foreach ($all_data as $simpledata){
     echo htmlspecialchars($simpledata['tiempo_ejecucion']) . "<br>";
@@ -91,7 +136,7 @@ $complejidad = "epico";
 $memoria = "mucha";
 $tiempo = "asd";
 $estado = "activp";
-$insercion = $mode_db->Insert_Datos($consulta_id,$tiempo_eje, $complejidad,$memoria,$tiempo, $estado);
+$insercion = $mode_db->CreateUser($complejidad ,$complejidad ,$complejidad );
 if ($insercion === "Inserción exitosa") {
     echo "Datos insertados correctamente.";
 } else {

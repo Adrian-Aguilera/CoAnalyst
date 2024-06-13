@@ -1,26 +1,37 @@
 <?php
-require_once '../DB/Conexion.php';
+require_once '../Model/CoAnalystModel.php';
 
+
+
+class GetData {
+    public function data_input() {
+        $username = isset($_POST['username']) ? htmlspecialchars($_POST['username']) : '';
+        $password = isset($_POST['password']) ? htmlspecialchars($_POST['password']) : 'No seleccionado';
+        $email = isset($_POST['email']) ? htmlspecialchars($_POST['email']) : 'No seleccionado';
+
+        return array($username, $password, $email);
+    }
+}
+$dataInput = new GetData;
+$modelo_db = new AlldataModel();
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-    $username = $conn->real_escape_string($_POST['username']);
-    $password = $conn->real_escape_string($_POST['password']);
+    list($username, $password, $email) = $dataInput->data_input();
 
     // Primero, verifica si el usuario ya existe
-    $checkUser = "SELECT * FROM usuario WHERE username = '$username'";
-    $result = $conn->query($checkUser);
+    $checkUser = $modelo_db->ValidateUser($username);
+    echo $checkUser."<br>";
 
-    if ($result->num_rows > 0) {
-        // El usuario ya existe
+    if ($checkUser == "Usuario Existente") {
         echo "El nombre de usuario ya está en uso. Por favor, elige otro.";
     } else {
-        // El usuario no existe, así que lo agregamos
-        $sql = "INSERT INTO usuario (username, pass) VALUES ('$username', '$password')";
-
-        if ($conn->query($sql) === TRUE) {
-            echo "Nuevo registro creado exitosamente";
-        } else {
-            echo "Error: " . $sql . "<br>" . $conn->error;
+        $response_db = $modelo_db->CreateUser($username, $password, $email);
+        echo $response_db."<br>";
+        if ($response_db == "Inserción exitosa") {
+            header("Location: ../App/CoAnalyst.html");
+        } elseif($response_db == "error") {
+            echo "F";
+        }else{
+            echo "valio conexion";
         }
     }
 }
-?>
