@@ -176,7 +176,6 @@ class AlldataModel {
     public function __destruct() {
         $this->conexion_data->close();
     }
-    
 }
 
 /*
