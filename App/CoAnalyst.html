@@ -232,7 +232,6 @@
                 display: flex;
                 margin-left: 2%;
                 background-color: #444444;
-                color: #fff;
                 width: 9%;
                 border-radius: 4px;
                 height: 28px;
@@ -413,13 +412,18 @@
                 <div class="data-title" style="margin-left: 25px;">
                     <div class="title-table" >
                         <h5>Estadisticas</h5>
-                        <div class="search-input reload">  
-                            <a href="http://" class="color-reload">
+                        <div class="search-input reload">
+                            <button type="submit" class="color-reload" onclick="buscar()" style="    
+                                width: 100%;
+                                border-radius: 5px;
+                                height: 28px;
+                                background: #fff0;"
+                            >
                                 <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
                                     <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2z"/>
                                     <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466"/>
                                 </svg>
-                            </a>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -439,7 +443,6 @@
                       </table>
                 </div>
             </div>
-            <div id="resultados"></div>
         </div>    
     </div>
     <script >
@@ -511,6 +514,35 @@
                 .catch(error => console.error('Error:', error));
         });
     </script>
+        <script>
+        function buscar() {
+            fetch('../Controller/CoAnalystListaController.php')
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Network response was not ok');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const tableBody = document.querySelector('.table tbody');
+                    tableBody.innerHTML = ''; // Limpia el cuerpo de la tabla antes de añadir nuevas filas
+                    data.forEach(item => {
+                        const row = `<tr>
+                            <th scope="row">${item.consulta_id}</th>
+                            <td>${item.tiempo_ejecucion}</td>
+                            <td>${item.complejidad}</td>
+                            <td>${item.memoria_usada}</td>
+                            <td>${item.estado}</td>
+                        </tr>`;
+                        tableBody.innerHTML += row;
+                    });
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    alert('Hubo un error al obtener los datos: ' + error.message); // Informar al usuario en caso de error
+                });
+        }
+        </script>
     <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
 </html>
