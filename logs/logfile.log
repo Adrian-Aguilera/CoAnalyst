@@ -1,0 +1,110 @@
+Array
+Array
+{"output":"10","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"function runCode() {\r\n   echo 5+6;\r\n}\r\nrunCode();","statusCode":200,"memory":"8448","cpuTime":"0.00","compilationStatus":null,"projectKey":null}
+{"output":"function runCode() {\r\n   echo 5+6;\r\n}\r\nrunCode();","statusCode":200,"memory":"8320","cpuTime":"0.00","compilationStatus":null,"projectKey":null}
+{"output":"function runCode() {\r\n   echo 5+6;\r\n}\r\nrunCode();","statusCode":200,"memory":"8320","cpuTime":"0.00","compilationStatus":null,"projectKey":null}
+{"output":"function runCode() {\r\n   echo 525/966;\r\n}\r\nrunCode();","statusCode":200,"memory":"8448","cpuTime":"0.00","compilationStatus":null,"projectKey":null}
+{"output":"function runCode() {\r\n   return 525/966;\r\n}\r\nrunCode();","statusCode":200,"memory":"8448","cpuTime":"0.00","compilationStatus":null,"projectKey":null}
+{"output":"function runCode() {\r\n   return 525/966;\r\n}\r\necho runCode();","statusCode":200,"memory":"8320","cpuTime":"0.00","compilationStatus":null,"projectKey":null}
+{"output":"function runCode() {\r\n   return 525/966;\r\n}\r\n$respuesta = runCode();\r\necho $respuesta;","statusCode":200,"memory":"8320","cpuTime":"0.00","compilationStatus":null,"projectKey":null}
+{"output":"function runCode() {\r\n   return 525/966;\r\n}\r\n$respuesta = runCode();\r\necho $respuesta;","statusCode":200,"memory":"8320","cpuTime":"0.00","compilationStatus":null,"projectKey":null}
+{"output":"function runCode() {\r\n   return 525+966;\r\n}\r\n$respuesta = runCode();\r\necho $respuesta;","statusCode":200,"memory":"8448","cpuTime":"0.00","compilationStatus":null,"projectKey":null}
+{"output":"\nTraceback (most recent call last):\n  File \"jdoodle.py\", line 4, in <module>\n    data = rest()\nNameError: name 'rest' is not defined","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"10","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"57","statusCode":200,"memory":"5248","cpuTime":"0.02","compilationStatus":null,"projectKey":null}
+Array
+{"output":"57","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"57","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"57","statusCode":200,"memory":"5248","cpuTime":"0.02","compilationStatus":null,"projectKey":null}
+{"output":"57","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"\n  File \"jdoodle.py\", line 1\n    def test():&#13;&#10;  return 5+56&#13;&#10;print(test())\n               ^\nSyntaxError: invalid syntax","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"\n  File \"jdoodle.py\", line 1\n    def test():\\n print(5+5)\\ntest()\n                                   ^\nSyntaxError: unexpected character after line continuation character","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"\n  File \"jdoodle.py\", line 1\n    def test():&#13;&#10;  print(5+5)&#13;&#10;test()\n               ^\nSyntaxError: invalid syntax","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"\n  File \"jdoodle.py\", line 1\n    def test():&#13;&#10;  return 5+52&#13;&#10;&#13;&#10;data = test()&#13;&#10;print(data)\n               ^\nSyntaxError: invalid syntax","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"\n  File \"jdoodle.py\", line 1\n    def test():&#13;&#10;    print(552+5)&#13;&#10;test()\n               ^\nSyntaxError: invalid syntax","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"\n  File \"jdoodle.py\", line 1\n    def test():&#13;&#10;  return 5+52&#13;&#10;&#13;&#10;data = test()&#13;&#10;print(data)\n               ^\nSyntaxError: invalid syntax","statusCode":200,"memory":"5120","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"\n  File \"jdoodle.py\", line 1\n    def test():&#13;&#10;  print(52+6)&#13;&#10;&#13;&#10;test()&#13;&#10;\n               ^\nSyntaxError: invalid syntax","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"\n  File \"jdoodle.py\", line 1\n    def test():&#13;&#10; print(52+6)&#13;&#10;test()&#13;&#10;\n               ^\nSyntaxError: invalid syntax","statusCode":200,"memory":"5120","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"\n  File \"jdoodle.py\", line 1\n    def test():&#13;&#10;print(52+6)&#13;&#10;test()&#13;&#10;\n               ^\nSyntaxError: invalid syntax","statusCode":200,"memory":"5248","cpuTime":"0.02","compilationStatus":null,"projectKey":null}
+{"output":"\n  File \"jdoodle.py\", line 1\n    def test():&#13;&#10;\n               ^\nSyntaxError: invalid syntax","statusCode":200,"memory":"5120","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"\n  File \"jdoodle.py\", line 1\n    def hello_world():&#13;&#10;print(&#34;Hello, World!&#34;)&#13;&#10;if True:&#13;&#10;print(&#34;This is indented.&#34;)\n                      ^\nSyntaxError: invalid syntax","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"\n  File \"jdoodle.py\", line 1\n    def hello_world():&#13;&#10;  print(&#34;Hello, World!&#34;)&#13;&#10;if True:&#13;&#10;  print(&#34;This is indented.&#34;)\n                      ^\nSyntaxError: invalid syntax","statusCode":200,"memory":"5248","cpuTime":"0.02","compilationStatus":null,"projectKey":null}
+{"output":"\n  File \"jdoodle.py\", line 1\n    def jola():&#13;&#10; print(526+5)&#13;&#10;&#13;&#10;jola()\n               ^\nSyntaxError: invalid syntax","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"57","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"57","statusCode":200,"memory":"4992","cpuTime":"0.02","compilationStatus":null,"projectKey":null}
+{"output":"57","statusCode":200,"memory":"5248","cpuTime":"0.02","compilationStatus":null,"projectKey":null}
+{"output":"57","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"57","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"57","statusCode":200,"memory":"5248","cpuTime":"0.02","compilationStatus":null,"projectKey":null}
+{"output":"57","statusCode":200,"memory":"5248","cpuTime":"0.02","compilationStatus":null,"projectKey":null}
+{"output":"57","statusCode":200,"memory":"5120","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"\n  File \"jdoodle.py\", line 2\n    return 5+52asdasd\n                    ^\nSyntaxError: invalid syntax","statusCode":200,"memory":"5120","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"\n  File \"jdoodle.py\", line 2\n    return 5+52asdasd\n                    ^\nSyntaxError: invalid syntax","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"57","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"57","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"\n  File \"jdoodle.py\", line 2\n    return 5+52asd\n                 ^\nSyntaxError: invalid syntax","statusCode":200,"memory":"5120","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"57","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"57","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"57","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"57","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"57","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"57","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"57","statusCode":200,"memory":"5248","cpuTime":"0.02","compilationStatus":null,"projectKey":null}
+{"output":"57","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"57","statusCode":200,"memory":"5120","cpuTime":"0.02","compilationStatus":null,"projectKey":null}
+{"output":"None","statusCode":200,"memory":"5120","cpuTime":"0.02","compilationStatus":null,"projectKey":null}
+{"output":"None","statusCode":200,"memory":"5248","cpuTime":"0.02","compilationStatus":null,"projectKey":null}
+{"output":"104","statusCode":200,"memory":"5248","cpuTime":"0.02","compilationStatus":null,"projectKey":null}
+{"output":"3","statusCode":200,"memory":"5120","cpuTime":"0.02","compilationStatus":null,"projectKey":null}
+{"output":"3","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"3","statusCode":200,"memory":"5248","cpuTime":"0.02","compilationStatus":null,"projectKey":null}
+{"output":"3","statusCode":200,"memory":"5248","cpuTime":"0.02","compilationStatus":null,"projectKey":null}
+{"output":"3","statusCode":200,"memory":"5248","cpuTime":"0.02","compilationStatus":null,"projectKey":null}
+{"output":"3","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"3","statusCode":200,"memory":"5120","cpuTime":"0.03","compilationStatus":null,"projectKey":null}
+{"output":"3","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"3","statusCode":200,"memory":"4992","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"3","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"3","statusCode":200,"memory":"5248","cpuTime":"0.02","compilationStatus":null,"projectKey":null}
+{"output":"3","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"5464654698209805","statusCode":200,"memory":"5248","cpuTime":"0.05","compilationStatus":null,"projectKey":null}
+{"output":"3","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"3","statusCode":200,"memory":"5120","cpuTime":"0.02","compilationStatus":null,"projectKey":null}
+{"output":"\nTraceback (most recent call last):\n  File \"jdoodle.py\", line 6, in <module>\n    priint(test())\nNameError: name 'priint' is not defined","statusCode":200,"memory":"5248","cpuTime":"0.02","compilationStatus":null,"projectKey":null}
+{"output":"10265","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"\nTraceback (most recent call last):\n  File \"jdoodle.py\", line 6, in <module>\n    priint(test())\nNameError: name 'priint' is not defined","statusCode":200,"memory":"5248","cpuTime":"0.02","compilationStatus":null,"projectKey":null}
+{"output":"10265","statusCode":200,"memory":"5248","cpuTime":"0.02","compilationStatus":null,"projectKey":null}
+{"output":"10265","statusCode":200,"memory":"5248","cpuTime":"0.03","compilationStatus":null,"projectKey":null}
+{"output":"10265","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"10265","statusCode":200,"memory":"5120","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"10265","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"10265","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"10265","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"10265","statusCode":200,"memory":"5248","cpuTime":"0.02","compilationStatus":null,"projectKey":null}
+{"output":"10265","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"10265","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"10265","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"10265","statusCode":200,"memory":"5248","cpuTime":"0.02","compilationStatus":null,"projectKey":null}
+{"output":"10265","statusCode":200,"memory":"4992","cpuTime":"0.02","compilationStatus":null,"projectKey":null}
+{"output":"502506980300","statusCode":200,"memory":"5248","cpuTime":"0.02","compilationStatus":null,"projectKey":null}
+{"output":"10265","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"10265","statusCode":200,"memory":"5248","cpuTime":"0.02","compilationStatus":null,"projectKey":null}
+{"output":"10265","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"10265","statusCode":200,"memory":"5248","cpuTime":"0.02","compilationStatus":null,"projectKey":null}
+{"output":"10265","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"5241654654651488","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"502465646464650887","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"502470887","statusCode":200,"memory":"5248","cpuTime":"0.02","compilationStatus":null,"projectKey":null}
+{"output":"507706","statusCode":200,"memory":"5248","cpuTime":"0.02","compilationStatus":null,"projectKey":null}
+{"output":"507706","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"10265","statusCode":200,"memory":"5248","cpuTime":"0.02","compilationStatus":null,"projectKey":null}
+{"output":"10265","statusCode":200,"memory":"5248","cpuTime":"0.02","compilationStatus":null,"projectKey":null}
+{"output":"10265","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"10265","statusCode":200,"memory":"5248","cpuTime":"0.02","compilationStatus":null,"projectKey":null}
+{"output":"10265","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"10265","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"10265","statusCode":200,"memory":"5248","cpuTime":"0.02","compilationStatus":null,"projectKey":null}
+{"output":"10265","statusCode":200,"memory":"5248","cpuTime":"0.01","compilationStatus":null,"projectKey":null}
+{"output":"10265","statusCode":200,"memory":"5248","cpuTime":"0.02","compilationStatus":null,"projectKey":null}
+{"output":"10265","statusCode":200,"memory":"5248","cpuTime":"0.02","compilationStatus":null,"projectKey":null}

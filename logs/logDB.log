@@ -1,0 +1,2 @@
+INSERT INTO usuarios (username, password, email) VALUES  ('test', '123', '123')
+INSERT INTO usuarios (username, password, email) VALUES  ('test2', 'test2', 'test2')
